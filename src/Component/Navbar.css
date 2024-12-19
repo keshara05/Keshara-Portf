@@ -1,0 +1,379 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(30, 60, 114, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 2rem;
+  background: rgba(30, 60, 114, 0.98);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Logo Styles */
+.nav-logo {
+  margin-right: auto;
+  padding-right: 2rem;
+}
+
+.nav-logo .logo-link {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+/* Right side navigation */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+/* Navigation Links - Base Styles */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Style 1: Gradient Slide */
+.nav-links.style-gradient a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-links.style-gradient a:hover {
+  background-position: 0 0;
+  transform: translateY(-2px);
+}
+
+/* Style 2: Neon Pulse */
+.nav-links.style-neon a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.nav-links.style-neon a:hover {
+  color: #4facfe;
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.7),
+               0 0 20px rgba(79, 172, 254, 0.5),
+               0 0 30px rgba(79, 172, 254, 0.3);
+  transform: scale(1.05);
+}
+
+/* Style 3: Split Reveal */
+.nav-links.style-split a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-links.style-split a::before,
+.nav-links.style-split a::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: 0;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  transition: transform 0.3s ease;
+}
+
+.nav-links.style-split a::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.nav-links.style-split a::after {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.nav-links.style-split a:hover::before {
+  transform: translateX(0);
+}
+
+.nav-links.style-split a:hover::after {
+  transform: translateX(0);
+}
+
+.nav-links.style-split a:hover {
+  color: #fff;
+}
+
+/* Style 4: Cosmic Glow */
+.nav-links.style-cosmic a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-links.style-cosmic a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.nav-links.style-cosmic a:hover {
+  color: #fff;
+  box-shadow: 0 0 20px rgba(18, 194, 233, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav-links.style-cosmic a:hover::before {
+  opacity: 0.2;
+}
+
+/* Style 5: Magnetic Pull */
+.nav-links.style-magnetic a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links.style-magnetic a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-links.style-magnetic a:hover::before {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Style 6: Cyber Slide */
+.nav-links.style-cyber a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: color 0.3s ease;
+}
+
+.nav-links.style-cyber a::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transition: all 0.3s ease;
+  opacity: 0;
+  z-index: -1;
+  transform: skew(-20deg);
+}
+
+.nav-links.style-cyber a:hover::before {
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  opacity: 0.2;
+}
+
+/* Social Media Icons */
+.social-media-icons {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.social-media-icons a {
+  color: #ffffff;
+  font-size: 1.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  opacity: 1;
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  width: 28px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.open span:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .social-media-icons {
+    gap: 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-right {
+    gap: 1rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    z-index: 100;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(30, 60, 114, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .social-media-icons {
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    background: rgba(30, 60, 114, 0.98);
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .social-media-icons.open {
+    transform: translateX(0);
+  }
+  
+  .nav-logo {
+    padding-right: 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+  
+  .nav-logo {
+    padding-right: 0.5rem;
+  }
+}
